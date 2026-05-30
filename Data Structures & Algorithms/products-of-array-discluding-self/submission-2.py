@@ -1,0 +1,48 @@
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        prod, zero_cnt=1,0
+        for num in nums:
+            if num:
+                prod*=num
+            else:
+                zero_cnt+=1
+        if zero_cnt>1:
+            return [0]*len(nums)
+        
+        res=[0]*len(nums)
+        for i,v in enumerate(nums):
+            if zero_cnt:
+                if v:
+                        res[i]=0
+                else:
+                    res[i]=prod
+            else:
+                res[i]=prod//v
+        return res
+        
+
+
+
+
+
+
+
+
+
+
+        """l1=[]
+        for i in range(0,len(nums)):
+            res=1
+            for j in range(0,len(nums)):
+                if(i!=j):
+                    res=res*nums[j]
+            l1.append(res)
+        return l1"""
+
+            
+        
+
+
+
+
+        
